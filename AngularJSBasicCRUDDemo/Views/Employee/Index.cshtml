@@ -1,0 +1,211 @@
+﻿<html ng-app="EmployeeModule">
+
+<head title="Manage Employee(s)">
+    <link href="~/assets/header-fixed.css" rel="stylesheet" />
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Basic Header</title>
+
+    <link rel="stylesheet" href="assets/demo.css">
+    <link rel="stylesheet" href="assets/header-fixed.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        #bsaHolder {
+            right: 25px;
+            position: fixed;
+            bottom: 25px;
+            width: 315px;
+            z-index: 10;
+        }
+
+            #bsaHolder span {
+                text-shadow: 1px 1px 0 #fff;
+            }
+
+        #bsap_aplink, #bsap_aplink:visited {
+            bottom: 10px;
+            color: #aaa;
+            font: 11px arial, sans-serif;
+            position: absolute;
+            right: 14px;
+            border: none;
+        }
+
+        #bsaHolder .bsa_it_p {
+            display: none;
+        }
+
+        #bsaHolder .bsa_it_ad {
+            background: -moz-linear-gradient(#F3F3F3, #FFFFFF, #F3F3F3) repeat scroll 0 0 transparent;
+            background: -webkit-gradient(linear,0% 0%,0% 100%,color-stop(0, #f3f3f3),color-stop(0.5, #fff),color-stop(1, #f3f3f3));
+            background-color: #f4f4f4;
+            border-color: #fff;
+            overflow: hidden;
+            padding: 10px 10px 0;
+            box-shadow: 0 0 2px #999;
+            border-radius: 2px;
+        }
+
+        #bsaHolder img {
+            display: block;
+            border: none;
+        }
+
+        #bsa_closeAd {
+            width: 15px;
+            height: 15px;
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            right: 11px;
+            border: none !important;
+            z-index: 1;
+            text-decoration: none !important;
+            background: url("http://cdn.tutorialzine.com/misc/enhance/x_icon.png") no-repeat;
+        }
+
+            #bsa_closeAd:hover {
+                background-position: left bottom;
+            }
+    </style>
+    <!--<script id="_carbonads_projs" type="text/javascript" src="//srv.carbonads.net/ads/C6AILKT.json?segment=placement:tutorialzinecom&amp;callback=_carbonads_go"></script>-->
+    <style id="_legacy_carbonads_css">
+        .one {
+            position: relative;
+        }
+
+            .one .bsa_it_ad {
+                display: block;
+                padding: 15px;
+                border: 1px solid #e1e1e1;
+                background: #f9f9f9;
+                font-family: helvetica,arial,sans-serif;
+                line-height: 100%;
+                position: relative;
+            }
+
+                .one .bsa_it_ad a {
+                    text-decoration: none;
+                }
+
+                    .one .bsa_it_ad a:hover {
+                        text-decoration: none;
+                    }
+
+                .one .bsa_it_ad .bsa_it_t {
+                    display: block;
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #212121;
+                    line-height: 125%;
+                    padding: 0 0 5px 0;
+                }
+
+                .one .bsa_it_ad .bsa_it_d {
+                    display: block;
+                    color: #434343;
+                    font-size: 12px;
+                    line-height: 135%;
+                }
+
+                .one .bsa_it_ad .bsa_it_i {
+                    float: left;
+                    margin: 0 15px 10px 0;
+                }
+
+        body .one .bsa_it_p {
+            text-align: center;
+            display: block !important;
+        }
+
+        .one .bsa_it_p a {
+            font-size: 10px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .one .bsa_it_ad .bsa_it_p a:hover {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <div>
+        <header class="header-fixed">
+
+            <div class="header-limiter">
+
+                <h1><a href="#">Company<span>logo</span></a></h1>
+
+                <nav>
+                    <a href="#/" class="selected">Home</a>                    
+                    <a href="#/employee">Employee</a>
+                    <a href="#">About</a>                    
+                    <a href="#">Contact</a>
+                </nav>
+
+            </div>
+
+        </header>
+
+        <div class="header-fixed-placeholder"></div>
+
+        <h2>Using Angular for Performing CRUD Operations</h2>
+        <div id="employeeListContent" ng-view></div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var showHeaderAt = 150;
+
+            var win = $(window),
+                    body = $('body');
+
+            // Show the fixed header only on larger screen devices
+
+            if (win.width() > 600) {
+
+                // When we scroll more than 150px down, we set the
+                // "fixed" class on the body element.
+
+                win.on('scroll', function (e) {
+
+                    if (win.scrollTop() > showHeaderAt) {
+                        body.addClass('fixed');
+                    }
+                    else {
+                        body.removeClass('fixed');
+                    }
+                });
+
+            }
+
+        });
+
+    </script>
+
+    <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async=""></script>
+
+</body>
+</html>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/MyScripts/Module.js"></script>
+<script src="~/Scripts/MyScripts/EmployeeService.js"></script>
+<script src="~/Scripts/MyScripts/EmployeeController.js"></script>
+<script src="~/Scripts/MyScripts/EmployeeDetailController.js"></script>
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
